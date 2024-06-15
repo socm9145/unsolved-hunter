@@ -18,17 +18,13 @@ if (navElement && navElement) {
     );
 
     if (userList.length > 0) {
-      const query = userList.map((user) => '!s@' + user).join(' ');
-      ext.storage.local.set(
-        { userCount: userList.length, userQuery: query },
-        () => {
-          if (ext.runtime.lastError) {
-            window.alert('헌터 등록 실패');
-          } else {
-            window.alert('헌터 ' + userList.length + '명 등록 완료');
-          }
+      ext.storage.local.set({ userList: userList }, () => {
+        if (ext.runtime.lastError) {
+          window.alert('헌터 등록 실패');
+        } else {
+          window.alert('헌터 ' + userList.length + '명 등록 완료');
         }
-      );
+      });
     } else {
       window.alert('등록할 헌터가 없습니다.');
     }
