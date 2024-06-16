@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Unsolved Hunter",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "BOJ 그룹 멤버가 풀지 않은 문제를 뽑아주는 확장 프로그램",
-  "permissions": ["storage"],
+  "permissions": ["storage", "scripting"],
+  "host_permissions": ["https://solved.ac/", "https://www.acmicpc.net/"],
   "action": {
     "default_popup": "popup/popup.html"
   },
@@ -11,7 +12,7 @@
     "16": "icons/16.png"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background/background.js"
   },
   "content_scripts": [
     {
