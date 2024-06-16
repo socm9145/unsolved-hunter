@@ -22,7 +22,10 @@
       "all_frames": false
     },
     {
-      "matches": ["https://www.acmicpc.net/group/workbook/create/*"],
+      "matches": [
+        "https://www.acmicpc.net/group/workbook/create/*",
+        "https://www.acmicpc.net/group/workbook/edit/**"
+      ],
       "js": ["scripts/workbook.js"],
       "css": ["styles/workbook.css"],
       "run_at": "document_idle",
