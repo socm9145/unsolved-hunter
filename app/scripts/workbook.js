@@ -132,7 +132,7 @@ function getInputValues() {
   if (isNaN(problemCount)) {
     return { tier, problemCount: 0 };
   }
-  problemCount = Math.trunc(Math.abs(problemCount));
+  problemCount = Math.trunc(problemCount);
   return { tier, problemCount };
 }
 
