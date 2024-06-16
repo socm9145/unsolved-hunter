@@ -1,5 +1,7 @@
+const ext = global.browser || global.chrome;
+
 // display how many hunters exist
-chrome.storage.local.get(['userList'], (result) => {
+ext.storage.local.get(['userList'], (result) => {
   const userList = result.userList;
   let userCount = 0;
   if (userList != undefined) {
@@ -105,11 +107,29 @@ function createButton() {
     const { tier, problemCount } = getInputValues();
     try {
       const query = await createGroupProblemQuery(tier);
-      chrome.runtime.sendMessage({
-        type: 'addGroupProblems',
-        query,
-        problemCount,
-      });
+      ext.runtime
+        .sendMessage({
+          type: 'addGroupProblems',
+          query,
+          problemCount,
+        })
+        .then((response) => {
+          const { problems } = response;
+          // add problems to the workbook in Firefox
+          if (ext == global.browser) {
+            const script = document.createElement('script');
+            script.textContent = `
+              (function() {
+                const problems = ${JSON.stringify(problems)};
+                problems.forEach((problemId) => {
+                  WorkbookProblem.addProblem(problemId);
+                });
+              })();
+            `;
+            document.documentElement.appendChild(script);
+            script.remove();
+          }
+        });
     } catch (error) {
       console.log(error);
     }
@@ -138,9 +158,9 @@ function getInputValues() {
 
 function createGroupProblemQuery(tier) {
   return new Promise((resolve, reject) => {
-    chrome.storage.local.get(['userList'], (result) => {
-      if (chrome.runtime.lastError) {
-        reject(chrome.runtime.lastError);
+    ext.storage.local.get(['userList'], (result) => {
+      if (ext.runtime.lastError) {
+        reject(ext.runtime.lastError);
         return;
       }
       const userList = result.userList;

@@ -1,4 +1,6 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+const ext = global.browser || global.chrome;
+
+ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === 'addGroupProblems') {
     const { query, problemCount } = request;
     if (problemCount < 1) {
@@ -12,18 +14,20 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       .then((responseJson) => {
         let problems = responseJson.items.map((x) => x.problemId);
         problems = shuffleArray(problems, problemCount);
-        // add problems to the workbook
-        chrome.scripting.executeScript({
-          target: { tabId: sender.tab.id },
-          func: (problems) => {
-            problems.forEach((problemId) => {
-              WorkbookProblem.addProblem(problemId);
-            });
-          },
-          args: [problems],
-          world: 'MAIN',
-        });
-        sendResponse();
+        // add problems to the workbook in Chrome
+        if (ext == global.chrome) {
+          ext.scripting.executeScript({
+            target: { tabId: sender.tab.id },
+            func: (problems) => {
+              problems.forEach((problemId) => {
+                WorkbookProblem.addProblem(problemId);
+              });
+            },
+            args: [problems],
+            world: 'MAIN',
+          });
+        }
+        sendResponse({ problems });
       })
       .catch((error) => {
         console.error('Error fetching data:', error);

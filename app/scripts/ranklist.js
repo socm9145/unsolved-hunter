@@ -1,4 +1,4 @@
-const ext = window.browser || window.chrome;
+const ext = global.browser || global.chrome;
 
 const navElement = document.querySelector('.nav-pills');
 const tableElement = document.querySelector('.table-responsive');
