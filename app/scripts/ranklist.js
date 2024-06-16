@@ -3,7 +3,7 @@ const ext = window.browser || window.chrome;
 const navElement = document.querySelector('.nav-pills');
 const tableElement = document.querySelector('.table-responsive');
 
-if (navElement && navElement) {
+if (navElement && tableElement) {
   const li = document.createElement('li');
   li.className = 'active';
   li.style.cursor = 'pointer';
