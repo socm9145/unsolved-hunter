@@ -1,0 +1,18 @@
+{
+  "name": "unsolved-hunter",
+  "version": "0.1.0",
+  "description": "BOJ 그룹에서 안 푼 문제를 무작위로 선별해주는 확장 프로그램",
+  "author": "TaeHyunKim",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webextension-toolbox dev",
+    "build": "webextension-toolbox build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/socm9145/unsolved-hunter.git"
+  },
+  "devDependencies": {
+    "@webextension-toolbox/webextension-toolbox": "^6.2.0"
+  }
+}

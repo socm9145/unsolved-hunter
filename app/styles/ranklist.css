@@ -1,0 +1,33 @@
+.register-button {
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.register-button:hover {
+  cursor: pointer;
+}
+
+.register-button a {
+  color: #ffffff;
+}
+
+.register-button a:hover {
+  color: #428bca;
+}
+
+.refresh-button {
+  background-color: #d9534f;
+  border-color: d43f3a;
+}
+
+.refresh-button:hover {
+  cursor: pointer;
+}
+
+.refresh-button a {
+  color: #ffffff;
+}
+
+.refresh-button a:hover {
+  color: #d9534f;
+}
