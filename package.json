@@ -1,7 +1,7 @@
 {
   "name": "unsolved-hunter",
   "version": "0.1.0",
-  "description": "BOJ 그룹에서 안 푼 문제를 선별하는 확장 프로그램",
+  "description": "BOJ 그룹에서 안 푼 문제를 무작위로 선별해주는 확장 프로그램",
   "author": "TaeHyunKim",
   "license": "MIT",
   "scripts": {
