@@ -88,9 +88,10 @@ function createInput() {
   input.type = 'number';
   input.placeholder = '문제 개수';
   input.autocomplete = 'off';
-  input.addEventListener('keydown', function (event) {
+  input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
+      addGroupProblems();
     }
   });
   div.appendChild(input);
@@ -102,40 +103,44 @@ function createButton() {
   const button = document.createElement('button');
   button.className = 'btn btn-primary';
   button.textContent = '사냥하기';
-  button.addEventListener('click', async (event) => {
+  button.addEventListener('click', (event) => {
     event.preventDefault();
-    const { tier, problemCount } = getInputValues();
-    try {
-      const query = await createGroupProblemQuery(tier);
-      ext.runtime
-        .sendMessage({
-          type: 'addGroupProblems',
-          query,
-          problemCount,
-        })
-        .then((response) => {
-          const { problems } = response;
-          // add problems to the workbook in Firefox
-          if (ext == global.browser) {
-            const script = document.createElement('script');
-            script.textContent = `
-              (function() {
-                const problems = ${JSON.stringify(problems)};
-                problems.forEach((problemId) => {
-                  WorkbookProblem.addProblem(problemId);
-                });
-              })();
-            `;
-            document.documentElement.appendChild(script);
-            script.remove();
-          }
-        });
-    } catch (error) {
-      console.log(error);
-    }
+    addGroupProblems();
   });
   div.appendChild(button);
   return div;
+}
+
+async function addGroupProblems() {
+  const { tier, problemCount } = getInputValues();
+  try {
+    const query = await createGroupProblemQuery(tier);
+    ext.runtime
+  .sendMessage({
+    type: 'addGroupProblems',
+    query,
+    problemCount,
+  })
+  .then((response) => {
+    const { problems } = response;
+    // add problems to the workbook in Firefox
+    if (ext == global.browser) {
+      const script = document.createElement('script');
+      script.textContent = `
+        (function() {
+          const problems = ${JSON.stringify(problems)};
+          problems.forEach((problemId) => {
+            WorkbookProblem.addProblem(problemId);
+          });
+        })();
+      `;
+      document.documentElement.appendChild(script);
+      script.remove();
+    }
+  });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function getInputValues() {
