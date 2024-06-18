@@ -1,6 +1,6 @@
 # <img src="./app/icons/256.png" width="28" height="28"> Unsolved Hunter
 
-[![](https://img.shields.io/badge/Firefox-0.1.0-orange?style=for-the-badge&logo=firefox)](#) [![](https://img.shields.io/badge/Chrome-0.1.0-blue?style=for-the-badge&logo=google-chrome)](#) (검토중)
+[![](https://img.shields.io/badge/Firefox-0.1.0-orange?style=for-the-badge&logo=firefox)](https://addons.mozilla.org/ko/firefox/addon/unsolved-hunter/) [![](https://img.shields.io/badge/Chrome-0.1.0-blue?style=for-the-badge&logo=google-chrome)](https://chromewebstore.google.com/detail/unsolved-hunter/fnfkipioecdmbajenchohnhkanmliiga?authuser=0&hl=ko)
 
 BOJ 그룹에서 안 푼 문제만 무작위로 선별해서 문제집에 등록해주는 확장 프로그램입니다.
 
