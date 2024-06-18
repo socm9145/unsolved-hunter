@@ -1,9 +1,9 @@
 const ext = global.browser || global.chrome;
 
 ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  const { type } = request;
-  if (type === 'addGroupProblems') {
-    const { query, problemCount } = request;
+  const { feature } = request;
+  if (feature === 'addGroupProblems') {
+    const { query, problemCount, type } = request;
     if (problemCount < 1) {
       sendResponse({ problems: [] });
       return false;
@@ -19,12 +19,16 @@ ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
         if (ext == global.chrome) {
           ext.scripting.executeScript({
             target: { tabId: sender.tab.id },
-            func: (problems) => {
+            func: (problems, type) => {
               problems.forEach((problemId) => {
-                WorkbookProblem.addProblem(problemId);
+                if (type === 'workbook') {
+                  WorkbookProblem.addProblem(problemId);
+                } else if (type === 'practice') {
+                  problem_add(problemId, 1);
+                }
               });
             },
-            args: [problems],
+            args: [problems, type],
             world: 'MAIN',
           });
         }
@@ -36,7 +40,7 @@ ext.runtime.onMessage.addListener((request, sender, sendResponse) => {
       });
     // to keep the port open
     return true;
-  } else if (type === 'dailyHunting') {
+  } else if (feature === 'dailyHunting') {
     const { query } = request;
     const url = `https://solved.ac/api/v3/search/problem?query=${query}&sort=solved&direction=desc&page=1`;
     fetch(url)
