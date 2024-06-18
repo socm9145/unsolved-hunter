@@ -35,7 +35,7 @@ function createMenu() {
       // get a problem and move
       ext.runtime
         .sendMessage({
-          type: 'dailyHunting',
+          feature: 'dailyHunting',
           query,
         })
         .then((response) => {

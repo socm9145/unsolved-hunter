@@ -41,7 +41,15 @@
         "https://www.acmicpc.net/group/workbook/edit/**"
       ],
       "js": ["scripts/workbook.js"],
-      "css": ["styles/workbook.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.acmicpc.net/group/practice/create/*",
+        "https://www.acmicpc.net/group/practice/edit/**"
+      ],
+      "js": ["scripts/practice.js"],
       "run_at": "document_idle",
       "all_frames": false
     },
