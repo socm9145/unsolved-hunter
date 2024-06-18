@@ -3,7 +3,7 @@
   "__chrome|edge__manifest_version": 3,
   "name": "Unsolved Hunter",
   "version": "0.2.0",
-  "description": "백준(BOJ)에서 안 푼 문제를 무작위로 선별해주는 확장 프로그램",
+  "description": "백준(BOJ)에서 안 푼 문제를 무작위로 선별해줍니다.",
   "permissions": ["storage", "scripting"],
   "__firefox|opera|safari__permissions": [
     "storage",
