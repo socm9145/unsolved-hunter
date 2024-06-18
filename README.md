@@ -10,8 +10,8 @@
 
 # Features
 
-- [문제집 문제 선별](./docs/instructions/workbook.md)
-- [연습 문제 선별](./docs/instructions//practice.md)
+- [문제집 문제 사냥](./docs/instructions/workbook.md)
+- [연습 문제 사냥](./docs/instructions//practice.md)
 - [오늘의 문제](./docs/instructions/daily-hunting.md)
 
 # Build
