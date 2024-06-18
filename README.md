@@ -11,7 +11,7 @@ BOJ 그룹에서 안 푼 문제만 무작위로 선별해서 문제집에 등록
 # Features
 
 - [문제집 문제 선별](./docs/instructions/workbook.md)
-- [연습 문제 선별(개발 예정)](#)
+- [연습 문제 선별](./docs/instructions//practice.md)
 - [오늘의 문제](./docs/instructions/daily-hunting.md)
 
 # Build
