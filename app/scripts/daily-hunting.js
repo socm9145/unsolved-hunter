@@ -24,18 +24,28 @@ function createTitle() {
 function createMenu() {
   const ul = document.createElement('ul');
   ul.className = 'dropdown-menu';
-
-  const menuList = ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Ruby'];
-  const tier = ['b', 's', 'g', 'p', 'd', 'r'];
+  // append tier menu
+  const tier = ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Ruby'];
   for (let i = 0; i < 6; i++) {
     const a = document.createElement('a');
-    a.innerText = menuList[i];
+    a.innerText = tier[i];
     a.addEventListener('click', (event) => {
       event.preventDefault();
-      console.log(menuList[i]);
-      alert('tier:' + tier[i] + ' !s@' + getCurrentUserName());
+      const query = 'tier:' + tier[i][0] + ' !s@' + getCurrentUserName();
+      // get a problem and move
+      ext.runtime
+        .sendMessage({
+          type: 'dailyHunting',
+          query,
+        })
+        .then((response) => {
+          const { problemId } = response;
+          window.location.href = `https://www.acmicpc.net/problem/${problemId}`;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     });
-
     const li = document.createElement('li');
     li.appendChild(a);
     ul.appendChild(li);
