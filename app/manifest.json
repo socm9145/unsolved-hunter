@@ -44,6 +44,13 @@
       "css": ["styles/workbook.css"],
       "run_at": "document_idle",
       "all_frames": false
+    },
+    {
+      "matches": ["https://www.acmicpc.net/**"],
+      "js": ["scripts/daily-hunting.js"],
+      "css": ["styles/daily-hunting.css"],
+      "run_at": "document_idle",
+      "all_frames": false
     }
   ]
 }

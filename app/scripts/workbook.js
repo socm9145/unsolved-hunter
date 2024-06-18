@@ -116,17 +116,17 @@ async function addGroupProblems() {
   try {
     const query = await createGroupProblemQuery(tier);
     ext.runtime
-  .sendMessage({
-    type: 'addGroupProblems',
-    query,
-    problemCount,
-  })
-  .then((response) => {
-    const { problems } = response;
-    // add problems to the workbook in Firefox
-    if (ext == global.browser) {
-      const script = document.createElement('script');
-      script.textContent = `
+      .sendMessage({
+        type: 'addGroupProblems',
+        query,
+        problemCount,
+      })
+      .then((response) => {
+        const { problems } = response;
+        // add problems to the workbook in Firefox
+        if (ext == global.browser) {
+          const script = document.createElement('script');
+          script.textContent = `
         (function() {
           const problems = ${JSON.stringify(problems)};
           problems.forEach((problemId) => {
@@ -134,10 +134,10 @@ async function addGroupProblems() {
           });
         })();
       `;
-      document.documentElement.appendChild(script);
-      script.remove();
-    }
-  });
+          document.documentElement.appendChild(script);
+          script.remove();
+        }
+      });
   } catch (error) {
     console.log(error);
   }
