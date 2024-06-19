@@ -1,6 +1,6 @@
 {
   "name": "unsolved-hunter",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "백준(BOJ)에서 안 푼 문제를 무작위로 선별해주는 확장 프로그램",
   "author": "TaeHyunKim",
   "license": "MIT",
