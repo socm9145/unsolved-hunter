@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "__chrome|edge__manifest_version": 3,
   "name": "Unsolved Hunter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "백준(BOJ)에서 안 푼 문제를 무작위로 선별해줍니다.",
   "permissions": ["storage", "scripting"],
   "__firefox|opera|safari__permissions": [
