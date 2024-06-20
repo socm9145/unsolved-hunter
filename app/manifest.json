@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "__chrome|edge__manifest_version": 3,
   "name": "Unsolved Hunter",
-  "version": "0.1.0",
-  "description": "BOJ 그룹에서 안 푼 문제를 무작위로 선별해주는 확장 프로그램",
+  "version": "1.0.0",
+  "description": "백준(BOJ)에서 안 푼 문제를 무작위로 선별해줍니다.",
   "permissions": ["storage", "scripting"],
   "__firefox|opera|safari__permissions": [
     "storage",
@@ -41,7 +41,22 @@
         "https://www.acmicpc.net/group/workbook/edit/**"
       ],
       "js": ["scripts/workbook.js"],
-      "css": ["styles/workbook.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.acmicpc.net/group/practice/create/*",
+        "https://www.acmicpc.net/group/practice/edit/**"
+      ],
+      "js": ["scripts/practice.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://www.acmicpc.net/**"],
+      "js": ["scripts/daily-hunting.js"],
+      "css": ["styles/daily-hunting.css"],
       "run_at": "document_idle",
       "all_frames": false
     }
