@@ -55,6 +55,7 @@ function createMenu() {
 
 function getCurrentUserName() {
   const loginBar = document.querySelector('.loginbar');
-  const userName = loginBar.querySelector('.username').innerText;
-  return userName;
+  const userName = loginBar.querySelector('.username');
+  if (!userName) return '';
+  else return userName.innerText;
 }
