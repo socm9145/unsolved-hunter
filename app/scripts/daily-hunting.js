@@ -13,6 +13,8 @@ if (navElement) {
 
 function createTitle() {
   const a = document.createElement('a');
+  a.setAttribute('class', 'dropdown-toggle');
+  a.setAttribute('data-toggle', 'dropdown');
   a.innerText = '오늘의 문제';
 
   const li = document.createElement('li');
@@ -55,6 +57,7 @@ function createMenu() {
 
 function getCurrentUserName() {
   const loginBar = document.querySelector('.loginbar');
-  const userName = loginBar.querySelector('.username').innerText;
-  return userName;
+  const userName = loginBar.querySelector('.username');
+  if (!userName) return '';
+  else return userName.innerText;
 }
