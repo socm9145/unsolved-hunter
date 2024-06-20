@@ -13,6 +13,8 @@ if (navElement) {
 
 function createTitle() {
   const a = document.createElement('a');
+  a.setAttribute('class', 'dropdown-toggle');
+  a.setAttribute('data-toggle', 'dropdown');
   a.innerText = '오늘의 문제';
 
   const li = document.createElement('li');
