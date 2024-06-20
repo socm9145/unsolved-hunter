@@ -23,7 +23,7 @@
 - 오른쪽 끝에서 등록 헌터의 수를 확인할 수 있습니다.
 - 티어를 선택하고, 문제 개수를 입력 후 사냥하기를 누르면 문제가 자동으로 등록됩니다.
 
-![workbook_hunted](../images/workbook_hunted.png)
+![workbook_hunted](../images/workbook.png)
 
 ### 개발 의도
 
