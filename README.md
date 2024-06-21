@@ -6,7 +6,7 @@
 
 개인 또는 그룹 구성원이 모두 풀지 않은 문제를 빠르게 제공받을 수 있습니다.
 
-이 확장 프로그램은 solved.ac의 검색 api를 사용합니다.
+이 확장 프로그램은 solved.ac의 검색 api를 기반으로 만들어졌습니다.
 
 ![workbook](./docs/images/workbook.png)
 
