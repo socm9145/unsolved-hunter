@@ -2,9 +2,11 @@
 
 [![](https://img.shields.io/badge/Firefox-1.0.1-orange?style=for-the-badge&logo=firefox)](https://addons.mozilla.org/ko/firefox/addon/unsolved-hunter/) [![](https://img.shields.io/badge/Chrome-1.0.1-blue?style=for-the-badge&logo=google-chrome)](https://chromewebstore.google.com/detail/unsolved-hunter/fnfkipioecdmbajenchohnhkanmliiga?authuser=0&hl=ko)
 
-백준(BOJ)에서 안 푼 문제만 무작위로 선별해서 문제집에 등록해주는 확장 프로그램입니다.
+**백준(BOJ)에서 안 푼 문제만 무작위로 선별해주는 확장 프로그램입니다.**
 
 개인 또는 그룹 구성원이 모두 풀지 않은 문제를 빠르게 제공받을 수 있습니다.
+
+이 확장 프로그램은 solved.ac의 검색 api를 사용합니다.
 
 ![workbook](./docs/images/workbook.png)
 
